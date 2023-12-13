@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Home from "./components/Home";
-import SelectTemplate from "./components/SelectTemplate";
+import ChooseTemplate from "./components/ChooseTemplate";
 import Editor from './components/Editor'
 import store from "./store/index";
 import PersonalInfo from "./components/PersonalInfo";
@@ -9,6 +9,7 @@ import WorkHistory from "./components/WorkHistory";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Summary from "./components/Summary";
+import About from "./components/About";
 
 const appRouter = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ const appRouter = createBrowserRouter([
   },
   {
     path: "/choose-template",
-    element: <SelectTemplate />,
+    element: <ChooseTemplate />,
+  },
+  {
+    path: '/about',
+    element: <About/>
   },
   {
     path: '/editor',

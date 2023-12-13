@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import Header from "./Header"
 
-const SelectTemplate = () => {
+const ChooseTemplate = () => {
   return (
     <div>
       <Header/>
-      <Link to='/editor/personal-info'>SelectTemplate</Link>
+      <Link to='/editor/personal-info'>ChooseTemplate</Link>
     </div>
   )
 }
 
-export default SelectTemplate
+export default ChooseTemplate

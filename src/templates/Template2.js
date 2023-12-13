@@ -8,9 +8,9 @@ const Template2 = () => {
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "px", "a4");
-      var ratio = canvas.width / canvas.height;
-      var width = pdf.internal.pageSize.getWidth();
-      var height = width / ratio;
+      let ratio = canvas.width / canvas.height;
+      let width = pdf.internal.pageSize.getWidth();
+      let height = width / ratio;
       pdf.addImage(imgData, "JPEG", 0, 0, width, height);
       pdf.save("resume.pdf");
     });
