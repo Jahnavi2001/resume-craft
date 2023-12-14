@@ -24,7 +24,7 @@ const Template1 = () => {
     <>
       <div
         id="pdf-content"
-        className="w-[50%] border shadow-md mx-4 py-4 my-4"
+        className="border shadow-md py-4"
       >
         <div className="pt-4 px-6 pb-2 flex gap-6">
           <div className="w-[15%] h-28">
