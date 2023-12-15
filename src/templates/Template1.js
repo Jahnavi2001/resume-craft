@@ -3,8 +3,12 @@ import { AiFillMail, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { BsPhoneFill, BsBroadcastPin } from "react-icons/bs";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { useSelector } from "react-redux";
 
 const Template1 = () => {
+
+  const {personalInfo, workHistory, educationData, skillsData, summary} = useSelector((store) => store.user)
+
   const handleGeneratePDF = async () => {
     const input = document.getElementById("pdf-content"); // Replace 'pdf-content' with the ID of your HTML content container
 
@@ -35,7 +39,7 @@ const Template1 = () => {
             />
           </div>
           <div className="w-[50%] flex flex-col gap-2">
-            <div className="text-[#DE8534] text-6xl">Chris Candidate</div>
+            <div className="text-[#DE8534] text-6xl">{ personalInfo.firstName }</div>
             <div className="text-xl">Human Resource Manager</div>
           </div>
           <div className="w-[35%] flex flex-col gap-2 items-end text-sm">

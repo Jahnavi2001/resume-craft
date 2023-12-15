@@ -18,6 +18,7 @@ const Summary = () => {
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
+          borderTop: "3px solid #de8535"
         }}
       >
         <h1 className="text-xl font-semibold">Summary</h1>

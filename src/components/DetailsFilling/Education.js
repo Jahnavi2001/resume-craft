@@ -69,6 +69,7 @@ const Education = () => {
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
+          borderTop: "3px solid #00a390"
         }}
       >
         <h1 className="text-xl font-semibold">Education</h1>
@@ -85,7 +86,7 @@ const Education = () => {
               </span>
               <span className="flex gap-6">
                 <span
-                  className="cursor-pointer text-red-400"
+                  className="cursor-pointer text-[#00a390]"
                   onClick={() => handleShowEducationData(index)}
                 >
                   {showEducationDataIndex === index ? (
@@ -184,7 +185,7 @@ const Education = () => {
         ))}
 
         <button
-          className="flex items-center text-red-400"
+          className="flex items-center text-[#00a390]"
           onClick={handleAddEducationData}
         >
           <AddOutlinedIcon />

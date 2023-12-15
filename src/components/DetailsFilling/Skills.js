@@ -20,9 +20,9 @@ const Skills = () => {
     onSubmit: () => {
       navigate("/editor/summary-tips");
     },
-    validate: () => {
+    validate: (values) => {
       let errors = {};
-      if (!skillsData[0].name) {
+      if (!values.skillsData[0].name) {
         errors.skill = "At least one skill set should be present";
       }
       return errors;
@@ -64,6 +64,7 @@ const Skills = () => {
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
+          borderTop: "3px solid #0091ff"
         }}
       >
         <h1 className="text-xl font-semibold">Key Skills</h1>
@@ -83,7 +84,7 @@ const Skills = () => {
                     value={formik.values.skillsData[index].name}
                     onChange={formik.handleChange}
                   />
-                  {formik.errors.skill && (
+                  {index === 0 && formik.errors.skill && (
                     <div className="text-red-400 text-sm">
                       {formik.errors.skill}
                     </div>
@@ -103,7 +104,7 @@ const Skills = () => {
         ))}
 
         <button
-          className="flex items-center text-red-400"
+          className="flex items-center text-[#0091ff]"
           onClick={handleAddSkill}
         >
           <AddOutlinedIcon />
