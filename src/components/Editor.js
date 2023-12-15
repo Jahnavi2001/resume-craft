@@ -7,13 +7,7 @@ const Editor = () => {
     <div>
       <Header />
       <div className="flex my-36 px-8 gap-4">
-        <div
-          className="w-1/2 h-max rounded-md"
-          style={{
-            boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
-            fontFamily: "Poppins",
-          }}
-        >
+        <div className="w-1/2">
           <Outlet />
         </div>
         <div className="w-1/2">
