@@ -37,7 +37,7 @@ const DrawerComp = () => {
             <InfoOutlinedIcon />
             <ListItemText>About</ListItemText>
           </ListItemButton>
-          
+
           <ListItemButton sx={{ gap: "12px", borderRadius: "8px" }}>
             <DarkModeOutlinedIcon />
             <ListItemText>Switch Mode</ListItemText>

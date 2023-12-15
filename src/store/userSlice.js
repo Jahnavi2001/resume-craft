@@ -15,6 +15,7 @@ const userSlice = createSlice({
       linkedInUrl: "",
       githubUrl: "",
       portfolioLink: "",
+      profilePic: "",
     },
     workHistory: [
       {

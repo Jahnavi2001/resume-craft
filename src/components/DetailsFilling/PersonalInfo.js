@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { validateEmail } from "../utils/validate";
-import PageNavigation from "./PageNavigation";
+import { validateEmail } from "../../utils/validate";
+import PageNavigation from "../PageNavigation";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setPersonalInfo } from "../store/userSlice";
+import { setPersonalInfo } from "../../store/userSlice";
 
 const PersonalInfo = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const PersonalInfo = () => {
   const formik = useFormik({
     initialValues: userData,
     onSubmit: () => {
-      navigate('/editor/work-history')
+      navigate("/editor/work-history-tips");
     },
     validate: (values) => {
       let errors = {};
@@ -42,6 +42,7 @@ const PersonalInfo = () => {
       const reader = new FileReader();
       reader.onload = (event) => {
         setImagePreview(event.target.result);
+        formik.setFieldValue("profilePic", event.target.result);
       };
       reader.readAsDataURL(file);
     }

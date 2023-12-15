@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Header/Header";
 import { Typography } from "@mui/material";
 import resumeCraftMainLogo from "../assets/resume-craft-main-logo.png";
 import ResumeSteps from "./ResumeSteps";
@@ -53,7 +53,7 @@ const Home = () => {
           </div>
         </div>
 
-        <ResumeSteps/>
+        <ResumeSteps />
       </div>
     </div>
   );

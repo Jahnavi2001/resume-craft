@@ -8,7 +8,7 @@ import {
   List,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import HeaderDrawer from "./HeaderDrawer";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 

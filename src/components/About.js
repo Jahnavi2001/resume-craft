@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./Header/Header";
 import about from "../assets/about.png";
 import myResumeImage from "../assets/my-resume-image.png";
 

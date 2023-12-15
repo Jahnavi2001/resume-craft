@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import PageNavigation from "./PageNavigation";
-import { setSummary } from "../store/userSlice";
+import PageNavigation from "../PageNavigation";
+import { setSummary } from "../../store/userSlice";
 
 const Summary = () => {
-  const dispatch = useDispatch()
-  const summary = useSelector((store) => store.user.summary)
+  const dispatch = useDispatch();
+  const summary = useSelector((store) => store.user.summary);
 
   const handleOnChangeSummary = (e) => {
-    dispatch(setSummary(e.target.value))
-  }
+    dispatch(setSummary(e.target.value));
+  };
 
   return (
     <>
-      <PageNavigation prev="/editor/skills" next="/" />
+      <PageNavigation prev="/editor/summary-tips" next="/" />
       <div
         className="px-6 py-4 rounded-md"
         style={{

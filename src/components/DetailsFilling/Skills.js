@@ -2,10 +2,10 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
-import PageNavigation from "./PageNavigation";
+import PageNavigation from "../PageNavigation";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setSkillsData } from "../store/userSlice";
+import { setSkillsData } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const Skills = () => {
@@ -18,7 +18,7 @@ const Skills = () => {
       skillsData,
     },
     onSubmit: () => {
-      navigate("/editor/summary");
+      navigate("/editor/summary-tips");
     },
     validate: () => {
       let errors = {};
@@ -58,7 +58,7 @@ const Skills = () => {
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
-      <PageNavigation prev="/editor/education" next={formik.handleSubmit} />
+      <PageNavigation prev="/editor/skills-tips" next={formik.handleSubmit} />
       <div
         className="px-6 py-4 rounded-md"
         style={{

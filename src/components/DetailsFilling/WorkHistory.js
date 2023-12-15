@@ -2,29 +2,28 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import PageNavigation from "./PageNavigation";
+import PageNavigation from "../PageNavigation";
 import { FaEllipsisV } from "react-icons/fa";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setWorkHistory } from "../store/userSlice";
+import { setWorkHistory } from "../../store/userSlice";
 
 const WorkHistory = () => {
   const [showWorkDataIndex, setShowWorkDataIndex] = useState(0);
-  const dispatch = useDispatch()
-  const workData = useSelector((store) => store.user.workHistory)
+  const dispatch = useDispatch();
+  const workData = useSelector((store) => store.user.workHistory);
 
   const formik = useFormik({
     initialValues: {
-      workData: workData
+      workData: workData,
     },
   });
 
   useEffect(() => {
-    dispatch(setWorkHistory(formik.values.workData))
+    dispatch(setWorkHistory(formik.values.workData));
   }, [formik.values]);
-
 
   const handleAddWorkHistory = () => {
     const newWorkData = [
@@ -56,7 +55,10 @@ const WorkHistory = () => {
 
   return (
     <>
-      <PageNavigation prev="/editor/personal-info" next="/editor/education" />
+      <PageNavigation
+        prev="/editor/work-history-tips"
+        next="/editor/education-tips"
+      />
       <div
         className="px-6 py-4 rounded-md"
         style={{

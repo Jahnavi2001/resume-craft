@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Template1 from "../templates/Template1";
 
 const Editor = () => {

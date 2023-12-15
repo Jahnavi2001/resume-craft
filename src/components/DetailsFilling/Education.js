@@ -6,19 +6,19 @@ import { FaEllipsisV } from "react-icons/fa";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
-import PageNavigation from "./PageNavigation";
+import PageNavigation from "../PageNavigation";
 import { useDispatch, useSelector } from "react-redux";
-import { setEducationData } from "../store/userSlice";
+import { setEducationData } from "../../store/userSlice";
 
 const Education = () => {
   const [showEducationDataIndex, setShowEducationDataIndex] = useState(0);
 
-  const dispatch = useDispatch()
-  const educationData = useSelector((store) => store.user.educationData)
+  const dispatch = useDispatch();
+  const educationData = useSelector((store) => store.user.educationData);
 
   const formik = useFormik({
     initialValues: {
-      educationData
+      educationData,
     },
   });
 
@@ -40,7 +40,7 @@ const Education = () => {
   };
 
   useEffect(() => {
-    dispatch(setEducationData(formik.values.educationData))
+    dispatch(setEducationData(formik.values.educationData));
   }, [formik.values]);
 
   const handleDeleteEducationData = (id) => {
@@ -60,7 +60,10 @@ const Education = () => {
 
   return (
     <>
-      <PageNavigation prev="/editor/work-history" next="/editor/skills" />
+      <PageNavigation
+        prev="/editor/education-tips"
+        next="/editor/skills-tips"
+      />
       <div
         className="px-6 py-4 rounded-md"
         style={{
