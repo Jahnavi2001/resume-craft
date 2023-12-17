@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const defaultValues = {
   personalInfoDefault: {
-    firstName: "Chris",
-    lastName: "Candidate",
+    firstName: "Vuyyuru",
+    lastName: "Jahnavi",
     phoneNumber: "9876543241",
     jobTitle: "Human Resource Manager",
     email: "email@youremail.com",
@@ -37,7 +37,7 @@ export const defaultValues = {
   educationDataDefault: [
     {
       id: uuidv4(),
-      schoolName: "The University of Texas,",
+      schoolName: "The University of Texas",
       schoolLocation: "Dallas",
       startDate: "2007-04-05",
       endDate: "2011-05-03",
@@ -63,6 +63,10 @@ export const defaultValues = {
       id: uuidv4(),
       name: "Develops positive workplace relationships",
     },
+    {
+      id: uuidv4(),
+      name: 'Communicator'
+    }
   ],
   summaryDefault:
     "Human resources generalist with 8 years of experience in HR, including hiring and terminating, disciplining employees and helping department managers improve employee performance. Worked with labor unions to negotiate compensation packages for workers. Organized new hire training initiatives as well as ongoing training to adhere to workplace safety standards. Worked with OSHA to ensure that all safety regulations are followed.",
