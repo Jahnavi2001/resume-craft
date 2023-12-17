@@ -14,6 +14,7 @@ import WorkHistoryTips from "./components/Tips/WorkHistoryTips";
 import EducationTips from "./components/Tips/EducationTips";
 import SkillsTips from "./components/Tips/SkillsTips";
 import SummaryTips from "./components/Tips/SummaryTips";
+import SaveResume from "./components/SaveResume";
 
 const appRouter = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/editor/summary',
         element: <Summary/>
+      },
+      {
+        path: '/editor/save-resume',
+        element: <SaveResume/>
       }
     ]
   }

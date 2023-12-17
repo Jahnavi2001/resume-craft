@@ -12,7 +12,7 @@ const Summary = () => {
 
   return (
     <>
-      <PageNavigation prev="/editor/summary-tips" next="/" />
+      <PageNavigation prev="/editor/summary-tips" next="/editor/save-resume" />
       <div
         className="px-6 py-4 rounded-md"
         style={{

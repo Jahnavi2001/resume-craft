@@ -1,37 +1,36 @@
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+import { useSelector } from "react-redux";
+import { defaultValues } from "../utils/defaultData";
+import { getMMMYYYYFromDateString } from "../utils/date";
+import { useUserData } from "../hooks/useUserData";
 
 const Template2 = () => {
-  const handleGeneratePDF = async () => {
-    const input = document.getElementById("pdf-content2"); // Replace 'pdf-content' with the ID of your HTML content container
+  const { personalInfo, workHistory, educationData, skillsData, summary } =
+    useSelector((store) => store.user);
 
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "px", "a4");
-      let ratio = canvas.width / canvas.height;
-      let width = pdf.internal.pageSize.getWidth();
-      let height = width / ratio;
-      pdf.addImage(imgData, "JPEG", 0, 0, width, height);
-      pdf.save("resume.pdf");
-    });
-  };
+  const { personalInfoDefault, summaryDefault } = defaultValues;
+
+  const { getWorkHistory, getEducationData, getSkillsData } = useUserData({
+    workHistory,
+    educationData,
+    skillsData,
+  });
 
   return (
     <>
       <div
-        id="pdf-content2"
-        className="w-[52%]"
+        id="template-2"
+        className="w-full"
         style={{ border: "1px solid #4b6982", backgroundColor: "#f7eebb" }}
       >
-        <div className="flex m-0">
+        <div className="flex">
           <div
-            className="flex flex-col col-3 items-center pt-5"
+            className="flex flex-col items-center pt-5 w-4/12 gap-4"
             style={{ backgroundColor: "#583131", flexDirection: "column" }}
           >
-            <div className="media me-5">
+            <div>
               <img
                 className="rounded align-self-center  "
-                src="https://static.vecteezy.com/system/resources/thumbnails/025/284/015/small_2x/close-up-growing-beautiful-forest-in-glass-ball-and-flying-butterflies-in-nature-outdoors-spring-season-concept-generative-ai-photo.jpg"
+                src={personalInfo.profilePic}
                 alt="profile-pic"
                 style={{
                   maxHeight: "180px",
@@ -42,58 +41,61 @@ const Template2 = () => {
                 }}
               />
             </div>
-            <div className="mt-3 font-bold " style={{ fontFamily: "Serif" }}>
-              <div className="" style={{ color: "white", fontSize: "30px" }}>
-                Vuyyuru Jahnavi
+
+            <div
+              className="font-bold text-center"
+              style={{ fontFamily: "Serif" }}
+            >
+              <div className="text-white text-xl">
+                {personalInfo.firstName || personalInfoDefault.firstName}{" "}
+                {personalInfo.lastName || personalInfoDefault.lastName}
               </div>
-              <h5
-                className="pt-2 "
-                style={{ color: "#adccc7", fontSize: "20px" }}
-              >
-                Senior Manager
+              <h5 className="text-[#adccc7] text-md">
+                {personalInfo.jobTitle || personalInfoDefault.jobTitle}
               </h5>
             </div>
-            <div className=" ">
+
+            <div>
               <div
-                className="p-5 ms-4"
-                style={{ fontSize: "18px", display: "inline-block" }}
+                className="px-2 mb-2"
+                style={{ backgroundColor: "white", color: "black" }}
               >
-                <div
-                  className="px-2 mb-2 "
-                  style={{ backgroundColor: "white", color: "black" }}
-                >
-                  Email:
-                </div>
-                <div style={{ color: "#f7f7f7" }}>
-                  jahnavivuyyuru179@gmail.com
-                </div>
-                <div
-                  className=" px-2 mb-2 mt-2"
-                  style={{ backgroundColor: "white", color: "black" }}
-                >
-                  Contact:
-                </div>
-                <div style={{ color: "#f7f7f7" }}>98765443213</div>
-                <div
-                  className=" px-2 mb-2 mt-2 "
-                  style={{ backgroundColor: "white", color: "black" }}
-                >
-                  Address:
-                </div>
-                <div style={{ color: "#f7f7f7" }}>Guntur, AndhraPradesh</div>
+                Email:
+              </div>
+
+              <div style={{ color: "#f7f7f7" }}>
+                {personalInfo.email || personalInfoDefault.email}
+              </div>
+
+              <div
+                className=" px-2 mb-2 mt-2"
+                style={{ backgroundColor: "white", color: "black" }}
+              >
+                Contact:
+              </div>
+
+              <div style={{ color: "#f7f7f7" }}>
+                {" "}
+                {personalInfo.phoneNumber || personalInfoDefault.phoneNumber}
+              </div>
+
+              <div
+                className=" px-2 mb-2 mt-2 "
+                style={{ backgroundColor: "white", color: "black" }}
+              >
+                Address:
+              </div>
+              <div style={{ color: "#f7f7f7" }}>
+                {personalInfo.city || personalInfoDefault.city},{" "}
+                {personalInfo.state || personalInfoDefault.state}
               </div>
             </div>
           </div>
-          <div className="flex flex-col px-8">
+
+          <div className="flex flex-col px-8 w-8/12">
             <div>
               <div className="text-justify mt-4">
-                Human resources generalist with 8 years of experience in HR,
-                including hiring and terminating, disciplining employees and
-                helping department managers improve employee performance. Worked
-                with labor unions to negotiate compensation packages for
-                workers. Organized new hire training initiatives as well as
-                ongoing training to adhere to workplace safety standards. Worked
-                with OSHA to ensure that all safety regulations are followed.
+                {summary || summaryDefault}
               </div>
               <hr style={{ height: "5px", backgroundColor: "#4b6982" }} />
             </div>
@@ -109,7 +111,43 @@ const Template2 = () => {
                   </h3>
                 </div>
                 <div className=" text-left " style={{ fontSize: "18px" }}>
-                  <div>
+                  {getWorkHistoryDetails().map((item) => (
+                    <div className="text-sm" key={item.id}>
+                      <div>
+                        <div className="text-lg">{item.positionTitle}</div>
+                        <div
+                          style={{
+                            fontFamily: "Source Sans Pro",
+                            fontSyle: "normal",
+                          }}
+                        >
+                          {item.companyName} |{" "}
+                          {getMMMYYYYFromDateString(item.startDate)} -
+                          {getMMMYYYYFromDateString(item.endDate)}
+                        </div>
+                      </div>
+                      <ul
+                        style={{
+                          fontFamily: "Source Sans Pro",
+                          fontSyle: "normal",
+                        }}
+                      >
+                        {item.summary.split(".").map(
+                          (point) =>
+                            point && (
+                              <li
+                                className="flex gap-3 items-center"
+                                key={point}
+                              >
+                                <div className="w-1 h-1 bg-[#DE8534] rounded-full mt-2"></div>
+                                <div>{point}</div>
+                              </li>
+                            )
+                        )}
+                      </ul>
+                    </div>
+                  ))}
+                  {/* <div>
                     <div className="mt-2">
                       <h4>Trans Global JDG</h4>
                     </div>
@@ -132,7 +170,7 @@ const Template2 = () => {
                         followed.
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="w-100 mt-4"> </div>
                 <hr style={{ height: "5px", backgroundColor: "#4b6982" }} />
@@ -146,15 +184,42 @@ const Template2 = () => {
                 </div>
                 <div className=" text-left">
                   <div style={{ fontSize: "18px" }}>
-                    <div>
-                      <h5> Bachelor of ENgineering and Technology</h5>
-                      <div>
-                        {" "}
-                        I have persued my Graduation{" "}
-                        <b> from Similipal University of Education</b>{" "}
+                    {getWorkHistoryDetails().map((item) => (
+                      <div className="text-sm" key={item.id}>
+                        <div>
+                          <div className="text-lg">{item.positionTitle}</div>
+                          <div
+                            style={{
+                              fontFamily: "Source Sans Pro",
+                              fontSyle: "normal",
+                            }}
+                          >
+                            {item.companyName} |{" "}
+                            {getMMMYYYYFromDateString(item.startDate)} -
+                            {getMMMYYYYFromDateString(item.endDate)}
+                          </div>
+                        </div>
+                        <ul
+                          style={{
+                            fontFamily: "Source Sans Pro",
+                            fontSyle: "normal",
+                          }}
+                        >
+                          {item.summary.split(".").map(
+                            (point) =>
+                              point && (
+                                <li
+                                  className="flex gap-3 items-center"
+                                  key={point}
+                                >
+                                  <div className="w-1 h-1 bg-[#DE8534] rounded-full mt-2"></div>
+                                  <div>{point}</div>
+                                </li>
+                              )
+                          )}
+                        </ul>
                       </div>
-                      <p>Duration: 2001-2007</p>
-                    </div>
+                    ))}
                   </div>
                 </div>
                 <div className="w-100 mt-4"> </div>
@@ -165,21 +230,25 @@ const Template2 = () => {
                   </h3>
                 </div>
                 <div className=" text-left mb-4" style={{ fontSize: "18px" }}>
-                  <div>
-                    <li>Web development</li>
-                    <li>Javascript</li>
-                    <li>VueJS</li>
-                    <li>ReactJS</li>
-                    <li>Adaptive & Flexible</li>
-                    <li>Interpersonal and communication</li>
-                  </div>
+                  <ul
+                    style={{
+                      fontFamily: "Source Sans Pro",
+                      fontSyle: "normal",
+                    }}
+                  >
+                    {getSkillsDetails().map((item) => (
+                      <li className="flex gap-3" key={item.id}>
+                        <div className="w-[6px] h-[6px] bg-[#DE8534] rounded-full mt-2"></div>
+                        <div>{item.name}</div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button onClick={handleGeneratePDF}>Generate PDF2</button>
     </>
   );
 };
