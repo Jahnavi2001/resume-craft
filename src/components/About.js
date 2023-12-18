@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div style={{ fontFamily: "Playfair Display" }}>
       <Header />
-      <div className="my-36">
+      <div className="py-36 dark:bg-[#1D1F25] dark:text-white pb-[21.25rem]">
         <div className="text-center">
           <h1 className="font-semibold text-5xl">Resume Craft</h1>
           <p className="text-gray-400 mt-5">
@@ -14,7 +14,7 @@ const About = () => {
           </p>
         </div>
         <div
-          className="w-5/12 mx-auto mt-14 rounded-xl p-8"
+          className="w-5/12 mx-auto mt-14 rounded-xl p-8 border"
           style={{ boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)" }}
         >
           <img src={about} alt="about-info" className="w-12 h-12" />

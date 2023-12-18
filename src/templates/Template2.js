@@ -17,6 +17,7 @@ const Template2 = () => {
 
   return (
     <div
+      className="border rounded-sm"
       style={{
         boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
       }}
@@ -26,8 +27,8 @@ const Template2 = () => {
         className="flex h-min"
         style={{ backgroundColor: "#f7eebb" }}
       >
-        <div className="flex flex-col items-center w-4/12 gap-4 pt-4 bg-[#583131] px-2">
-          <div className="my-6">
+        <div className="flex flex-col items-center w-4/12 gap-4 pt-4 bg-[#583131] py-2">
+          <div className="my-6 text-[#583131]">
             {personalInfo.profilePic && (
               <img
                 className="rounded-full w-28 h-28 bg-gray-300"
@@ -55,38 +56,47 @@ const Template2 = () => {
             </h5>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="px-2 bg-white text-black">Email:</div>
+          <div className="flex flex-col gap-4">
+            <div>
+              <div className="px-2 bg-white text-black">Email:</div>
 
-            <div className="text-white">
-              {personalInfo.email || personalInfoDefault.email}
+              <div className="text-white">
+                {personalInfo.email || personalInfoDefault.email}
+              </div>
+            </div>
+            <div>
+              <div className="px-2 bg-white text-black">Contact:</div>
+
+              <div className="text-white">
+                {personalInfo.phoneNumber || personalInfoDefault.phoneNumber}
+              </div>
             </div>
 
-            <div className="px-2 bg-white text-black">Contact:</div>
-
-            <div className="text-white">
-              {personalInfo.phoneNumber || personalInfoDefault.phoneNumber}
+            <div>
+              <div className="px-2 bg-white text-black">LinkedIn Url:</div>
+              <div className="text-white break-all">
+                {personalInfo.linkedInUrl || personalInfoDefault.linkedInUrl}
+              </div>
             </div>
 
-            <div className="px-2 bg-white text-black">LinkedIn Url:</div>
-            <div className="text-white">
-              {personalInfo.linkedInUrl || personalInfoDefault.linkedInUrl}
+            <div>
+              <div className="px-2 bg-white text-black">Github Url:</div>
+              <div className="text-white break-all">
+                {personalInfo.githubUrl || personalInfoDefault.githubUrl}
+              </div>
             </div>
 
-            <div className="px-2 bg-white text-black">Github Url:</div>
-            <div className="text-white">
-              {personalInfo.githubUrl || personalInfoDefault.githubUrl}
-            </div>
-
-            <div className="px-2 bg-white text-black">Address:</div>
-            <div className="text-white">
-              {personalInfo.city || personalInfoDefault.city},{" "}
-              {personalInfo.state || personalInfoDefault.state}
+            <div>
+              <div className="px-2 bg-white text-black">Address:</div>
+              <div className="text-white">
+                {personalInfo.city || personalInfoDefault.city},{" "}
+                {personalInfo.state || personalInfoDefault.state}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col p-4 w-8/12 gap-3">
+        <div className="flex flex-col p-4 w-8/12 gap-3 dark:text-black">
           <div>
             <div className="text-justify">{summary || summaryDefault}</div>
           </div>
@@ -115,7 +125,7 @@ const Template2 = () => {
                       (point) =>
                         point && (
                           <li className="flex gap-3 my-2" key={point}>
-                            <div className="w-1 h-1 bg-[#DE8534] rounded-full mt-2"></div>
+                            <span className="w-[6px] h-[6px] bg-[#DE8534] rounded-full mt-2"></span>
                             <div>{point}</div>
                           </li>
                         )

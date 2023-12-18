@@ -13,7 +13,7 @@ const ResumeSteps = () => {
         {/* STEP-1 */}
         <div className="md:flex flex-row-reverse gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
-            <img src={step1} alt="step1" />
+            <img src={step1} alt="step1" className="rounded-lg"/>
           </div>
           <div className="md:w-1/2 text-justify">
             <span className="rounded-full bg-[#063970] text-white py-4 px-5">
@@ -35,7 +35,7 @@ const ResumeSteps = () => {
         {/* STEP-2 */}
         <div className="md:flex gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
-            <img src={step2} alt="step2" className="w-full h-full" />
+            <img src={step2} alt="step2" className="w-full h-full rounded-lg" />
           </div>
           <div className="md:w-1/2 text-justify">
             <span className="rounded-full bg-[#063970] text-white py-4 px-5">
@@ -57,7 +57,7 @@ const ResumeSteps = () => {
         {/* STEP-3 */}
         <div className="md:flex flex-row-reverse gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
-            <img src={step3} alt="step2" />
+            <img src={step3} alt="step2" className="rounded-lg"/>
           </div>
           <div className="md:w-1/2 text-justify">
             <span className="rounded-full bg-[#063970] text-white py-4 px-5">
@@ -81,7 +81,7 @@ const ResumeSteps = () => {
         {/* STEP-4 */}
         <div className="md:flex gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
-            <img src={step4} alt="step2" />
+            <img src={step4} alt="step2" className="rounded-lg"/>
           </div>
           <div className="md:w-1/2 text-justify">
             <span className="rounded-full bg-[#063970] text-white py-4 px-5">

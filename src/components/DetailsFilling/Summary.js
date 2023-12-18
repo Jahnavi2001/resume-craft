@@ -14,7 +14,7 @@ const Summary = () => {
     <>
       <PageNavigation prev="/editor/summary-tips" next="/editor/save-resume" />
       <div
-        className="px-6 py-4 rounded-md"
+        className="px-6 py-4 rounded-md border"
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
@@ -28,7 +28,7 @@ const Summary = () => {
 
         <div className="py-4">
           <textarea
-            className="border-gray-500"
+            className="border-gray-500 dark:text-black"
             rows="10"
             value={summary}
             onChange={handleOnChangeSummary}

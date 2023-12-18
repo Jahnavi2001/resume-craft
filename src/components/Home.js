@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Header from "./Header/Header";
 import { Typography } from "@mui/material";
-import resumeCraftMainLogo from "../assets/resume-craft-main-logo.png";
 import ResumeSteps from "./ResumeSteps";
 
 const Home = () => {
@@ -15,13 +14,13 @@ const Home = () => {
     <div style={{ fontFamily: "Playfair Display" }}>
       <Header />
 
-      <div className="px-6 md:px-20 my-36">
+      <div className="px-6 md:px-20 py-36 dark:bg-[#1D1F25] dark:text-white">
         <div className="md:flex gap-16 w-full items-center">
           <div className="md:w-1/2">
             <img
-              src={resumeCraftMainLogo}
+              src={require('../assets/resume-craft-main-logo.png')}
               alt="resume-craft-main-logo"
-              className="w-full my-4 object-contain"
+              className="w-full my-4 object-contain rounded-lg"
             />
           </div>
           <div className="md:w-1/2 my-24">

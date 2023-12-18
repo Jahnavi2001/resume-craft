@@ -11,16 +11,35 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import HeaderDrawer from "./HeaderDrawer";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import { setIsDarkMode } from "../../store/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector((store) => store.theme.isDarkMode);
+
+  const handleToggleTheme = () => {
+    dispatch(setIsDarkMode());
+    console.log("handleToggleTheme", isDarkMode);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar sx={{ background: "#063970", padding: "10px 58px" }}>
+      <AppBar
+        sx={{
+          padding: "10px 58px",
+          boxShadow: "none",
+          color: isDarkMode ? "white" : "black",
+          backgroundColor: isDarkMode ? "#1D1F25" : "#FFFFFf",
+        }}
+        className="border-b border-b-slate-100 dark:border-b-slate-800"
+      >
         <Toolbar>
-          <img src={logo} alt="logo" className="w-24 h-12" />
+          <img src={logo} alt="logo" className="w-24 h-12 border rounded-lg"/>
           {isMatch ? (
             <HeaderDrawer />
           ) : (
@@ -34,7 +53,13 @@ const Header = () => {
               </Link>
 
               <ListItemText className="mx-8">
-                <DarkModeOutlinedIcon />
+                <span onClick={handleToggleTheme} className="cursor-pointer">
+                  {isDarkMode ? (
+                    <LightModeOutlinedIcon />
+                  ) : (
+                    <DarkModeOutlinedIcon />
+                  )}
+                </span>
               </ListItemText>
             </List>
           )}

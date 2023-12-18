@@ -2,8 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const defaultValues = {
   personalInfoDefault: {
-    firstName: "Vuyyuru",
-    lastName: "Jahnavi",
+    firstName: "Neidi",
+    lastName: "Mahite",
     phoneNumber: "9876543241",
     jobTitle: "Human Resource Manager",
     email: "email@youremail.com",

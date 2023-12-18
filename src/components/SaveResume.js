@@ -8,7 +8,7 @@ import { useReactToPrint } from 'react-to-print';
 const SaveResume = () => {
 
   const handleDownloadPDF = useReactToPrint({
-    content: () => document.getElementById("template-1"),
+    content: () => document.getElementById("template-2"),
     onBeforePrint: () => {
       console.log('LOADING____BEFORE PRINT')
         // setLoading(true)
@@ -21,7 +21,7 @@ const SaveResume = () => {
 
   // Used html2canvas and jspdf but styles were not coming as expected using tailwind 
   const handleGeneratePDF = async () => {
-    const input = document.getElementById("template-1");
+    const input = document.getElementById("template-2");
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({
@@ -40,7 +40,7 @@ const SaveResume = () => {
     <>
       <PageNavigation prev="/editor/summary" next="/" />
       <div
-        className="px-6 py-4 rounded-md"
+        className="px-6 py-4 rounded-md border"
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",

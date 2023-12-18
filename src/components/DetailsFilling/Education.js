@@ -65,7 +65,7 @@ const Education = () => {
         next="/editor/skills-tips"
       />
       <div
-        className="px-6 py-4 rounded-md"
+        className="px-6 py-4 rounded-md border"
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
@@ -120,6 +120,7 @@ const Education = () => {
                     <label>School Location</label>
                     <input
                       type="text"
+                      className="dark:text-black"
                       id={`educationData[${index}].schoolLocation`}
                       value={formik.values.educationData[index].schoolLocation}
                       onChange={formik.handleChange}
@@ -132,6 +133,7 @@ const Education = () => {
                     <label>Degree</label>
                     <input
                       type="text"
+                      className="dark:text-black"
                       id={`educationData[${index}].degree`}
                       value={formik.values.educationData[index].degree}
                       onChange={formik.handleChange}
@@ -141,6 +143,7 @@ const Education = () => {
                     <label>Field of Study</label>
                     <input
                       type="text"
+                      className="dark:text-black"
                       id={`educationData[${index}].field`}
                       value={formik.values.educationData[index].field}
                       onChange={formik.handleChange}
@@ -153,6 +156,7 @@ const Education = () => {
                     <label>Start Date</label>
                     <input
                       type="date"
+                      className="dark:text-black"
                       id={`educationData[${index}].startDate`}
                       onChange={formik.handleChange}
                       value={formik.values.educationData[index].startDate}
@@ -162,6 +166,7 @@ const Education = () => {
                     <label>End Date</label>
                     <input
                       type="date"
+                      className="dark:text-black"
                       id={`educationData[${index}].endDate`}
                       onChange={formik.handleChange}
                       value={formik.values.educationData[index].endDate}
@@ -173,6 +178,7 @@ const Education = () => {
                   <label>Description</label>
                   <textarea
                     id={`educationData[${index}].description`}
+                    className="dark:text-black"
                     onChange={formik.handleChange}
                     value={formik.values.educationData[index].description}
                     rows="5"

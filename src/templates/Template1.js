@@ -20,6 +20,7 @@ const Template1 = () => {
 
   return (
     <div
+      className="border"
       style={{
         boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
       }}
@@ -101,7 +102,7 @@ const Template1 = () => {
                   (point) =>
                     point && (
                       <li className="flex gap-3 my-2" key={point}>
-                        <div className="w-1 h-1 bg-[#DE8534] rounded-full mt-2"></div>
+                        <div className="w-[6px] h-[6px] bg-[#DE8534] rounded-full mt-2"></div>
                         <div>{point}</div>
                       </li>
                     )

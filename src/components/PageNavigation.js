@@ -21,7 +21,7 @@ const PageNavigation = ({ prev, next, onNextClick }) => {
     <div className="flex pb-3 justify-end gap-4">
       {prev !== "/" && (
         <button
-          className="text-[#2a64ad] py-1 px-2 rounded-full flex flex-col font-light gap-0.5 text-xs"
+          className="text-[#2a64ad] py-1 px-2 rounded-full flex flex-col font-light gap-0.5 text-xs dark:border dark:border-slate-400"
           style={{ boxShadow: "0px 0px 15px rgba(0,0,0,.15)" }}
           onClick={() => handlePrevNavigatePage(prev)}
         >

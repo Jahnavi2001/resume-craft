@@ -60,11 +60,11 @@ const WorkHistory = () => {
         next="/editor/education-tips"
       />
       <div
-        className="px-6 py-4 rounded-md"
+        className="px-6 py-4 rounded-md border"
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
-          borderTop: "3px solid #fe4a5a"
+          borderTop: "3px solid #fe4a5a",
         }}
       >
         <h1 className="text-xl font-semibold">Professional Experience</h1>
@@ -103,6 +103,7 @@ const WorkHistory = () => {
                     <label>Position Title</label>
                     <input
                       type="text"
+                      className="dark:text-black"
                       id={`workData[${index}].positionTitle`}
                       value={formik.values.workData[index].positionTitle}
                       onChange={formik.handleChange}
@@ -112,6 +113,7 @@ const WorkHistory = () => {
                     <label>Company Name</label>
                     <input
                       type="text"
+                      className="dark:text-black"
                       id={`workData[${index}].companyName`}
                       value={formik.values.workData[index].companyName}
                       onChange={formik.handleChange}
@@ -124,6 +126,7 @@ const WorkHistory = () => {
                     <label>Start Date</label>
                     <input
                       type="date"
+                      className="dark:text-black"
                       id={`workData[${index}].startDate`}
                       onChange={formik.handleChange}
                       value={formik.values.workData[index].startDate}
@@ -133,6 +136,7 @@ const WorkHistory = () => {
                     <label>End Date</label>
                     <input
                       type="date"
+                      className="dark:text-black"
                       id={`workData[${index}].endDate`}
                       onChange={formik.handleChange}
                       value={formik.values.workData[index].endDate}
@@ -144,6 +148,7 @@ const WorkHistory = () => {
                   <label>Work Summary</label>
                   <textarea
                     id={`workData[${index}].summary`}
+                    className="dark:text-black"
                     onChange={formik.handleChange}
                     value={formik.values.workData[index].summary}
                     rows="5"

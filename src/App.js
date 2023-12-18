@@ -1,9 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import Home from "./components/Home";
 import ChooseTemplate from "./components/ChooseTemplate";
-import Editor from './components/Editor'
-import store from "./store/index";
+import Editor from "./components/Editor";
 import PersonalInfo from "./components/DetailsFilling/PersonalInfo";
 import WorkHistory from "./components/DetailsFilling/WorkHistory";
 import Education from "./components/DetailsFilling/Education";
@@ -15,6 +13,7 @@ import EducationTips from "./components/Tips/EducationTips";
 import SkillsTips from "./components/Tips/SkillsTips";
 import SummaryTips from "./components/Tips/SummaryTips";
 import SaveResume from "./components/SaveResume";
+import { useSelector } from "react-redux";
 
 const appRouter = createBrowserRouter([
   {
@@ -26,63 +25,64 @@ const appRouter = createBrowserRouter([
     element: <ChooseTemplate />,
   },
   {
-    path: '/about',
-    element: <About/>
+    path: "/about",
+    element: <About />,
   },
   {
-    path: '/editor',
+    path: "/editor",
     element: <Editor />,
     children: [
       {
-        path: '/editor/personal-info',
-        element: <PersonalInfo/>
+        path: "/editor/personal-info",
+        element: <PersonalInfo />,
       },
       {
-        path: '/editor/work-history-tips',
-        element: <WorkHistoryTips/>
+        path: "/editor/work-history-tips",
+        element: <WorkHistoryTips />,
       },
       {
-        path: '/editor/work-history',
-        element: <WorkHistory/>
+        path: "/editor/work-history",
+        element: <WorkHistory />,
       },
       {
-        path: '/editor/education-tips',
-        element: <EducationTips/>
+        path: "/editor/education-tips",
+        element: <EducationTips />,
       },
       {
-        path: '/editor/education',
-        element: <Education/>
+        path: "/editor/education",
+        element: <Education />,
       },
       {
-        path: '/editor/skills-tips',
-        element: <SkillsTips/>
+        path: "/editor/skills-tips",
+        element: <SkillsTips />,
       },
       {
-        path: '/editor/skills',
-        element: <Skills/>
+        path: "/editor/skills",
+        element: <Skills />,
       },
       {
-        path: '/editor/summary-tips',
-        element: <SummaryTips/>
+        path: "/editor/summary-tips",
+        element: <SummaryTips />,
       },
       {
-        path: '/editor/summary',
-        element: <Summary/>
+        path: "/editor/summary",
+        element: <Summary />,
       },
       {
-        path: '/editor/save-resume',
-        element: <SaveResume/>
-      }
-    ]
-  }
-
+        path: "/editor/save-resume",
+        element: <SaveResume />,
+      },
+    ],
+  },
 ]);
 
 const App = () => {
+  const isDarkMode = useSelector((store) => store.theme.isDarkMode);
+
   return (
-    <Provider store={store}>
+    <div className={isDarkMode ? 'dark' : ''}>
       <RouterProvider router={appRouter}></RouterProvider>
-    </Provider>
+    </div>
   );
 };
 

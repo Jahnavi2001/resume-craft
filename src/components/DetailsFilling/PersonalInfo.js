@@ -57,11 +57,11 @@ const PersonalInfo = () => {
           onNextClick={formik.handleSubmit}
         />
         <div
-          className="px-6 py-4 rounded-md"
+          className="px-6 py-4 rounded-md border"
           style={{
             boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
             fontFamily: "Poppins",
-            borderTop: "3px solid #2a64ad"
+            borderTop: "3px solid #2a64ad",
           }}
         >
           <div>
@@ -93,7 +93,7 @@ const PersonalInfo = () => {
                   />
                   <label
                     htmlFor="upload-profile-pic"
-                    className="border border-[#063970] rounded-full px-2 text-xs text-[#063970] cursor-pointer"
+                    className="border border-[#063970] dark:border-white rounded-full px-2 text-xs text-[#063970] dark:text-white cursor-pointer"
                   >
                     Upload Photo
                   </label>
@@ -104,6 +104,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="jobTitle"
+                  className="dark:text-black"
                   value={formik.values.jobTitle}
                   onChange={formik.handleChange}
                 />
@@ -116,6 +117,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="firstName"
+                  className="dark:text-black"
                   value={formik.values.firstName}
                   onChange={formik.handleChange}
                 />
@@ -130,6 +132,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="lastName"
+                  className="dark:text-black"
                   value={formik.values.lastName}
                   onChange={formik.handleChange}
                 />
@@ -142,6 +145,7 @@ const PersonalInfo = () => {
                 <input
                   type="number"
                   id="phoneNumber"
+                  className="dark:text-black"
                   value={formik.values.phoneNumber}
                   onChange={formik.handleChange}
                 />
@@ -156,6 +160,7 @@ const PersonalInfo = () => {
                 <input
                   type="email"
                   id="email"
+                  className="dark:text-black"
                   value={formik.values.email}
                   onChange={formik.handleChange}
                 />
@@ -173,6 +178,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="city"
+                  className="dark:text-black"
                   value={formik.values.city}
                   onChange={formik.handleChange}
                 />
@@ -182,6 +188,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="state"
+                  className="dark:text-black"
                   value={formik.values.state}
                   onChange={formik.handleChange}
                 />
@@ -194,6 +201,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="linkedInUrl"
+                  className="dark:text-black"
                   value={formik.values.linkedInUrl}
                   onChange={formik.handleChange}
                 />
@@ -203,6 +211,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="githubUrl"
+                  className="dark:text-black"
                   value={formik.values.githubUrl}
                   onChange={formik.handleChange}
                 />
@@ -215,6 +224,7 @@ const PersonalInfo = () => {
                 <input
                   type="text"
                   id="portfolioLink"
+                  className="dark:text-black"
                   value={formik.values.portfolioLink}
                   onChange={formik.handleChange}
                 />
