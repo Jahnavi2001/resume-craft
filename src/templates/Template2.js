@@ -24,10 +24,10 @@ const Template2 = () => {
     >
       <div
         id="template-2"
-        className="flex h-min"
+        className="flex min-h-screen"
         style={{ backgroundColor: "#f7eebb" }}
       >
-        <div className="flex flex-col items-center w-4/12 gap-4 pt-4 bg-[#583131] py-2">
+        <div className="flex flex-col items-center w-4/12 gap-4 pt-4 bg-[#583131] py-2 px-4">
           <div className="my-6 text-[#583131]">
             {personalInfo.profilePic && (
               <img

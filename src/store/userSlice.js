@@ -46,7 +46,7 @@ const userSlice = createSlice({
       },
     ],
     summary: "",
-    selectedTemplateName: "",
+    selectedTemplateDetails: null,
   },
   reducers: {
     setPersonalInfo: (state, action) => {
@@ -64,8 +64,8 @@ const userSlice = createSlice({
     setSummary: (state, action) => {
       state.summary = action.payload;
     },
-    setSelectedTemplateName: (state, action) => {
-      state.selectedTemplateName = action.payload;
+    setSelectedTemplateDetails: (state, action) => {
+      state.selectedTemplateDetails = action.payload;
     },
   },
 });
@@ -76,7 +76,7 @@ export const {
   setEducationData,
   setSkillsData,
   setSummary,
-  setSelectedTemplateName,
+  setSelectedTemplateDetails,
 } = userSlice.actions;
 
 export default userSlice.reducer;

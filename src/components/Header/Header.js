@@ -24,7 +24,6 @@ const Header = () => {
 
   const handleToggleTheme = () => {
     dispatch(setIsDarkMode());
-    console.log("handleToggleTheme", isDarkMode);
   };
 
   return (

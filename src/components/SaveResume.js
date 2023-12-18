@@ -4,18 +4,19 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReactToPrint } from 'react-to-print';
+import { useSelector } from "react-redux";
 
 const SaveResume = () => {
 
+  const selectedTemplateDetails = useSelector(
+    (store) => store.user.selectedTemplateDetails
+  );
+  
   const handleDownloadPDF = useReactToPrint({
-    content: () => document.getElementById("template-2"),
+    content: () => document.getElementById(selectedTemplateDetails?.id),
     onBeforePrint: () => {
-      console.log('LOADING____BEFORE PRINT')
-        // setLoading(true)
     },
     onAfterPrint: () => {
-      console.log('LOADING____AFTER PRINT')
-        // setLoading(false)
     }
   });
 
