@@ -98,8 +98,8 @@ const WorkHistory = () => {
 
             {showWorkDataIndex === index && (
               <div>
-                <div className="flex gap-6 p-3">
-                  <div className="w-1/2">
+                <div className="flex flex-col md:flex-row gap-6 p-3">
+                  <div className="md:w-1/2">
                     <label>Position Title</label>
                     <input
                       type="text"
@@ -109,7 +109,7 @@ const WorkHistory = () => {
                       onChange={formik.handleChange}
                     />
                   </div>
-                  <div className="w-1/2 ">
+                  <div className="md:w-1/2 ">
                     <label>Company Name</label>
                     <input
                       type="text"
@@ -121,8 +121,8 @@ const WorkHistory = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-6 p-3">
-                  <div className="w-1/2">
+                <div className="flex flex-col md:flex-row gap-6 p-3">
+                  <div className="md:w-1/2">
                     <label>Start Date</label>
                     <input
                       type="date"
@@ -132,7 +132,7 @@ const WorkHistory = () => {
                       value={formik.values.workData[index].startDate}
                     />
                   </div>
-                  <div className="w-1/2">
+                  <div className="md:w-1/2">
                     <label>End Date</label>
                     <input
                       type="date"

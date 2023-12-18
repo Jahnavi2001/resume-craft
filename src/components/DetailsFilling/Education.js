@@ -128,8 +128,8 @@ const Education = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-6 p-3">
-                  <div className="w-1/2">
+                <div className="flex flex-col md:flex-row gap-6 p-3">
+                  <div className="md:w-1/2">
                     <label>Degree</label>
                     <input
                       type="text"
@@ -139,7 +139,7 @@ const Education = () => {
                       onChange={formik.handleChange}
                     />
                   </div>
-                  <div className="w-1/2 ">
+                  <div className="md:w-1/2 ">
                     <label>Field of Study</label>
                     <input
                       type="text"
@@ -151,8 +151,8 @@ const Education = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-6 p-3">
-                  <div className="w-1/2">
+                <div className="flex flex-col md:flex-row gap-6 p-3">
+                  <div className="md:w-1/2">
                     <label>Start Date</label>
                     <input
                       type="date"
@@ -162,7 +162,7 @@ const Education = () => {
                       value={formik.values.educationData[index].startDate}
                     />
                   </div>
-                  <div className="w-1/2">
+                  <div className="md:w-1/2">
                     <label>End Date</label>
                     <input
                       type="date"

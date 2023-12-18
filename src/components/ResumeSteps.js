@@ -11,7 +11,7 @@ const ResumeSteps = () => {
       </div>
       <div style={{ fontFamily: "Muli" }}>
         {/* STEP-1 */}
-        <div className="md:flex flex-row-reverse gap-32 m-8 md:m-16 items-center">
+        <div className="flex flex-col md:flex-row-reverse gap-8 md:gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
             <img src={step1} alt="step1" className="rounded-lg"/>
           </div>
@@ -33,7 +33,7 @@ const ResumeSteps = () => {
         </div>
 
         {/* STEP-2 */}
-        <div className="md:flex gap-32 m-8 md:m-16 items-center">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
             <img src={step2} alt="step2" className="w-full h-full rounded-lg" />
           </div>
@@ -55,7 +55,7 @@ const ResumeSteps = () => {
         </div>
 
         {/* STEP-3 */}
-        <div className="md:flex flex-row-reverse gap-32 m-8 md:m-16 items-center">
+        <div className="flex flex-col md:flex-row-reverse gap-8 md:gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
             <img src={step3} alt="step2" className="rounded-lg"/>
           </div>
@@ -79,7 +79,7 @@ const ResumeSteps = () => {
         </div>
 
         {/* STEP-4 */}
-        <div className="md:flex gap-32 m-8 md:m-16 items-center">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-32 m-8 md:m-16 items-center">
           <div className="md:w-1/2">
             <img src={step4} alt="step2" className="rounded-lg"/>
           </div>

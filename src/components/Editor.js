@@ -21,11 +21,11 @@ const Editor = () => {
     <div>
       <Header />
       {selectedTemplateDetails && (
-        <div className="flex py-36 px-8 gap-4 dark:bg-[#1D1F25] dark:text-white min-h-screen">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row py-36 px-8 gap-4 dark:bg-[#1D1F25] dark:text-white min-h-screen">
+          <div className="md:w-1/2">
             <Outlet />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             {selectedTemplateDetails.name === "Template1" ? (
               <Template1 />
             ) : (

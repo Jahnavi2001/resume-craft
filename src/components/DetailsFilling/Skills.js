@@ -69,7 +69,7 @@ const Skills = () => {
           {formik.values.skillsData.map((item, index) => (
             <div className="flex items-center gap-4 py-2" key={item.id}>
               <div className="border rounded-md w-[95%]">
-                <div className="w-1/2 flex p-4 items-center gap-4">
+                <div className="md:w-1/2 flex p-4 items-center gap-4">
                   <label>Skill</label>
                   <div>
                     <input
