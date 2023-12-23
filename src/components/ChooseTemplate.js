@@ -22,7 +22,7 @@ const containerVariants = {
   },
   visible: {
     opacity: 1,
-    transition: {delay: 0.3}
+    transition: { delay: 0.3 },
   },
   exit: {
     x: "-100vw",
@@ -55,13 +55,17 @@ const ChooseTemplate = () => {
       </div>
       <div className="flex flex-wrap mx-4 justify-center md:mx-8 mt-12">
         {templates.map((item) => (
-          <img
-            onClick={() => handleSelectTemplate(item)}
-            src={item.imageSource}
-            alt="image-template"
-            className="w-72 h-96 m-4 border border-blue-500 rounded-md cursor-pointer"
+          <motion.span
             key={item.id}
-          />
+            whileHover={{ scale: 1.1 }}
+          >
+            <img
+              onClick={() => handleSelectTemplate(item)}
+              src={item.imageSource}
+              alt="image-template"
+              className="w-72 h-96 m-4 border border-blue-500 rounded-md cursor-pointer"
+            />
+          </motion.span>
         ))}
       </div>
     </motion.div>
