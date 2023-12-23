@@ -1,12 +1,31 @@
-import Header from "./Header/Header";
 import about from "../assets/about.png";
 import myResumeImage from "../assets/my-resume-image.png";
+import { motion } from 'framer-motion'
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 0.3 },
+  },
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
+  },
+};
 
 const About = () => {
   return (
-    <div style={{ fontFamily: "Playfair Display" }}>
-      <Header />
-      <div className="py-36 px-4 dark:bg-[#1D1F25] dark:text-white min-h-screen">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      style={{ fontFamily: "Playfair Display" }}
+    >
+      <div className="py-36 px-4 min-h-screen">
         <div className="text-center">
           <h1 className="font-semibold text-5xl">Resume Craft</h1>
           <p className="text-gray-400 mt-5">
@@ -37,7 +56,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
