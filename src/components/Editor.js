@@ -16,10 +16,10 @@ const containerVariants = {
 };
 
 const Editor = () => {
+  const navigate = useNavigate();
   const selectedTemplateDetails = useSelector(
     (store) => store.user.selectedTemplateDetails
   );
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!selectedTemplateDetails) {

@@ -15,12 +15,14 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { setIsDarkMode } from "../../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import { SUPPORTED_LANGUAGES } from "../../utils/constants";
+import { changeLanguage } from "../../store/configSlice";
 
 const headerVariants = {
   hidden: { y: 200 },
   visible: {
     y: 0,
-    transition: { delay: 0.2, type: "spring", stiffness: 120 }
+    transition: { delay: 0.2, type: "spring", stiffness: 120 },
   },
 };
 const Header = () => {
@@ -33,6 +35,10 @@ const Header = () => {
   const handleToggleTheme = () => {
     dispatch(setIsDarkMode());
   };
+
+  const handleLanguageClick = (e) => {
+    dispatch(changeLanguage(e.target.value))
+  }
 
   return (
     <motion.div variants={headerVariants} initial="hidden" animate="visible">
@@ -55,7 +61,7 @@ const Header = () => {
             {isMatch ? (
               <HeaderDrawer />
             ) : (
-              <List sx={{ marginLeft: "auto", display: "flex" }}>
+              <List sx={{ marginLeft: "auto", display: "flex", alignItems: 'center' }}>
                 <Link to="/">
                   <ListItemText className="mx-8">Home</ListItemText>
                 </Link>
@@ -63,6 +69,16 @@ const Header = () => {
                 <Link to="/about">
                   <ListItemText className="mx-8">About</ListItemText>
                 </Link>
+
+                <ListItemText sx={{margin: '0px 24px', }}>
+                  <select onChange={handleLanguageClick} className="dark:bg-[#1D1F25]">
+                    {SUPPORTED_LANGUAGES.map((lang) => (
+                      <option value={lang.identifier} key={lang.identifier}>
+                        {lang.name}
+                      </option>
+                    ))}
+                  </select>
+                </ListItemText>
 
                 <ListItemText className="mx-8">
                   <span onClick={handleToggleTheme} className="cursor-pointer">

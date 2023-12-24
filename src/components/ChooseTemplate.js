@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTemplateDetails } from "../store/userSlice";
 import { motion } from "framer-motion";
+import lang from "../utils/langConstants";
 
 const templates = [
   {
@@ -34,6 +35,8 @@ const ChooseTemplate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const langKey = useSelector((store) => store.config.lang);
+
   const handleSelectTemplate = (item) => {
     dispatch(setSelectedTemplateDetails(item));
     navigate("/editor/personal-info");
@@ -48,9 +51,11 @@ const ChooseTemplate = () => {
       exit="exit"
     >
       <div className="text-center flex flex-col gap-4">
-        <div className="text-4xl font-semibold">Select a Template</div>
+        <div className="text-4xl font-semibold">
+          {lang[langKey].chooseTemplate.header}
+        </div>
         <div className="text-sm text-slate-500">
-          Select a template to get started
+          {lang[langKey].chooseTemplate.subheader}
         </div>
       </div>
       <div className="flex flex-wrap mx-4 justify-center md:mx-8 mt-12">

@@ -1,9 +1,12 @@
 import KeyboardBackspaceOutlinedIcon from "@mui/icons-material/KeyboardBackspaceOutlined";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 import { useNavigate } from "react-router-dom";
+import lang from "../utils/langConstants";
+import { useSelector } from "react-redux";
 
 const PageNavigation = ({ prev, next, onNextClick }) => {
   const navigate = useNavigate();
+  const langKey = useSelector((store) => store.config.lang)
 
   const handlePrevNavigatePage = (path) => {
     navigate(path);
@@ -28,7 +31,9 @@ const PageNavigation = ({ prev, next, onNextClick }) => {
           <div className="-mt-1">
             <KeyboardBackspaceOutlinedIcon />
           </div>
-          <div className="-mt-2"> Back</div>
+          <div className="-mt-2">
+            {lang[langKey].pageNavigation.back}
+          </div>
         </button>
       )}
       {next !== "/" && (
@@ -36,7 +41,7 @@ const PageNavigation = ({ prev, next, onNextClick }) => {
           className="bg-[#fe4a5a] px-3 py-2 text-white rounded-full font-light flex justify-center items-center gap-1"
           onClick={() => handleNextNavigatePage(next)}
         >
-          Next
+          {lang[langKey].pageNavigation.next}
           <ArrowRightAltOutlinedIcon />
         </button>
       )}

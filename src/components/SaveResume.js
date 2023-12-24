@@ -1,34 +1,43 @@
-import { Button } from "@mui/material";
 import PageNavigation from "./PageNavigation";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import { useReactToPrint } from 'react-to-print';
+import { useReactToPrint } from "react-to-print";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      repeatType: "reverse",
+      repeat: Infinity,
+      duration: 0.3,
+    },
+  },
+};
 
 const SaveResume = () => {
-
   const selectedTemplateDetails = useSelector(
     (store) => store.user.selectedTemplateDetails
   );
-  
+
   const handleDownloadPDF = useReactToPrint({
     content: () => document.getElementById(selectedTemplateDetails?.id),
-    onBeforePrint: () => {
-    },
-    onAfterPrint: () => {
-    }
+    onBeforePrint: () => {},
+    onAfterPrint: () => {},
   });
 
-  // Used html2canvas and jspdf but styles were not coming as expected using tailwind 
+  // Used html2canvas and jspdf but styles were not coming as expected using tailwind
   const handleGeneratePDF = async () => {
     const input = document.getElementById("template-2");
     const canvas = await html2canvas(input);
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'px',
-      format: 'a4'
+      orientation: "portrait",
+      unit: "px",
+      format: "a4",
     });
     let ratio = canvas.width / canvas.height;
     let width = pdf.internal.pageSize.getWidth();
@@ -50,14 +59,15 @@ const SaveResume = () => {
       >
         <h1 className="text-xl font-semibold">Save Resume</h1>
         <p className="text-gray-400">Download your Resume.</p>
-        <div className="text-center my-8">
-          <Button
-            variant="contained"
+        <div className="flex justify-center my-8">
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
             onClick={handleDownloadPDF}
-            sx={{ textTransform: "none", gap: "8px" }}
+            className="bg-[#1c5088] p-2 text-white rounded-lg text-lg flex items-center gap-2"
           >
             <CloudDownloadIcon /> Download Resume
-          </Button>
+          </motion.button>
         </div>
       </div>
     </>
