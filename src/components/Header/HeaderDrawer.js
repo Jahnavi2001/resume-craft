@@ -11,9 +11,12 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
 import { setIsDarkMode } from "../../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { SUPPORTED_LANGUAGES } from "../../utils/constants";
+import { changeLanguage } from "../../store/configSlice";
 
 const DrawerComp = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,10 @@ const DrawerComp = () => {
   const handleToggleTheme = () => {
     dispatch(setIsDarkMode());
     setOpenDrawer(false);
+  };
+
+  const handleLanguageClick = (e) => {
+    dispatch(changeLanguage(e.target.value));
   };
 
   return (
@@ -55,6 +62,22 @@ const DrawerComp = () => {
                 <ListItemText>About</ListItemText>
               </ListItemButton>
             </Link>
+
+            <ListItemText sx={{ margin: "20px" }}>
+              <div className="flex gap-1">
+                <TranslateOutlinedIcon />
+                <select
+                  onChange={handleLanguageClick}
+                  className={isDarkMode ? 'bg-[#1D1F25]' : 'bg-white'}
+                >
+                  {SUPPORTED_LANGUAGES.map((lang) => (
+                    <option value={lang.identifier} key={lang.identifier}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </ListItemText>
 
             <ListItemButton
               sx={{ gap: "12px", borderRadius: "8px" }}
