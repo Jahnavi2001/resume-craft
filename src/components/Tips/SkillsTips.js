@@ -6,6 +6,7 @@ import TipsTemplateCard from "./TipsTemplateCard";
 const SkillsTips = () => {
   const langKey = useSelector((store) => store.config.lang);
   const { title, point1, point2 } = lang[langKey].skillsTips;
+  
   return (
     <>
       <PageNavigation prev="/editor/education" next="/editor/skills" />

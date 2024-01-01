@@ -14,7 +14,7 @@ const TipsTemplateCard = ({ title, points }) => {
         style={{ fontSize: "32px", lineHeight: "40px" }}
       >
         <div>
-          <img src={tipsImage} alt="tips-image" className="w-14 h-12 rounded-lg" />
+          <img src={tipsImage} alt="tips-profile" className="w-14 h-12 rounded-lg" />
         </div>
         <div>{title}</div>
       </h1>

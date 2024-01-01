@@ -2,11 +2,11 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import PageNavigation from "../PageNavigation";
 import { FaEllipsisV } from "react-icons/fa";
 import { useFormik } from "formik";
 import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
-import PageNavigation from "../PageNavigation";
 import { useDispatch, useSelector } from "react-redux";
 import { setEducationData } from "../../store/userSlice";
 
@@ -69,7 +69,7 @@ const Education = () => {
         style={{
           boxShadow: "0 2px 12px 0 rgba(0, 0, 0, 0.24)",
           fontFamily: "Poppins",
-          borderTop: "3px solid #00a390"
+          borderTop: "3px solid #00a390",
         }}
       >
         <h1 className="text-xl font-semibold">Education</h1>
